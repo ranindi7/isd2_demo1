@@ -8,3 +8,11 @@ the following command:
     python -m unittest tests/test_course.py
 """
 import unittest
+
+from demonstration.instructor.isd_demonstration.course.course import Course
+from department.department import Department
+
+class TestClient(unittest.TestCase):
+    
+    def test_init_valid(self):
+        course = Course("Intermediate Software Development", Department.COMPUTER_SCIENCE,6)
