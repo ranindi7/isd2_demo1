@@ -9,10 +9,17 @@ the following command:
 """
 import unittest
 
-from demonstration.instructor.isd_demonstration.course.course import Course
+from course.course import Course
 from department.department import Department
-
 class TestClient(unittest.TestCase):
     
     def test_init_valid(self):
         course = Course("Intermediate Software Development", Department.COMPUTER_SCIENCE,6)
+
+    def test_init_invalid_name_raises_exception(self):
+        with self.assertRaises(ValueError):
+            course = Course(" ", Department.COMPUTER_SCIENCE, 6)
+    
+    def test_init_invalid_department_raises_expection(self):
+        with self.assertRaises(ValueError):
+            course = Course("Intermediate Software Developpmet", None, 6)
