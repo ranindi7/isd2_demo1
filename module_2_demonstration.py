@@ -1,6 +1,6 @@
 from student.student import Student
 from department.department import Department
-
+from course import *
 
 def main():
     # Given students populated into a list.
@@ -18,11 +18,19 @@ def main():
     #1. Create an instance of the Course class with valid inputs.
     # If an exception occurs, print the exception instance.
     # Comment out once tested.
-
+    # try:
+    #     software_development_fundamentals = Course("SDF", Department.COMPUTER_SCIENCE, 6)
+    # except ValueError as e:
+    #     print(e)
     
     #2. Define a Lecture Course with a capacity of 20 and a current enrollment of 19
     # Use any valid values for the other parameters.
     # print the object
+    try:
+        isd = LectureCourse("ISD", Department.COMPUTER_SCIENCE, 6, 20, 19, "P414")
+        print(isd)
+    except ValueError as e:
+        print(e)
 
 
 

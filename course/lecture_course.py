@@ -4,7 +4,7 @@ from student.student import Student
 
 class LectureCourse(Course):
     def __init__(self, name: str, department: Department, credit_hours: int, capacity:int, current_enrollment:int, lecture_hall:str):
-        super().__init__(name, department, credit_hours, capacity, current_enrollment, lecture_hall)
+        super().__init__(name, department, credit_hours, capacity, current_enrollment)
 
         if len(lecture_hall.strip()) == 0:
             raise ValueError("Lecture Hall cannot be blank.")
@@ -12,7 +12,7 @@ class LectureCourse(Course):
             self.__lecture_hall = lecture_hall
 
     def __str__(self) -> str:
-        return super().__str__() + f"n\Lecture Hall: {self.__lecture_hall}"
+        return super().__str__() + f"\nLecture Hall: {self.__lecture_hall}"
     
     def enroll_student(self, student: Student) -> str:
         message = f"{student.name}"
@@ -23,3 +23,4 @@ class LectureCourse(Course):
             message += f" has been successfully enrolled in the {self.name}."
         else:
             message += f" has not been enrolled in the lecture: {self.name} due to insuffiecient capacity."
+        return message
