@@ -37,13 +37,19 @@ def main():
     #3. Define a Lab Course with a capacity of 20 and a current enrollment of 8
     # Use any valid values for the other parameters.
     # print the object.
+    try:
+        chemistry = LabCourse("Chemistry", Department.COMPUTER_SCIENCE, 6, 20, 8, "Goggles")
+        print(chemistry)
+    except ValueError as e:
+        print(e)
 
 
 
     #4. Using a loop, enroll the students from the students list above
     # into the lecture course defined above.  Print the message returned
     # from the enroll_student method.
-
+    for student in students:
+        print(chemistry.enroll_student(student))
 
 
     #5. Using a loop, enroll the students from the students list above
