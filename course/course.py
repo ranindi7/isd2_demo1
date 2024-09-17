@@ -1,5 +1,6 @@
 from department.department import Department
 from abc import ABC, abstractmethod
+from student.student import Student
 
 class Course(ABC):
     """
@@ -30,13 +31,18 @@ class Course(ABC):
         if isinstance(credit_hours,int):
             self.__credit_hours = credit_hours
         else:
-             raise ValueError("Credit hours must be a whole number.")
+            raise ValueError("Credit hours must be a whole number.")
         
         if isinstance(capacity,int):
             # SINGLE underscore for protected attributes
             self._capacity = capacity
         else:
             raise ValueError("Capacity must be numeric.")
+            
+        if isinstance(current_enrollment,int):
+            self._current_enrollment = current_enrollment
+        else:
+            raise ValueError("Current Enrollment must be numeric.")
     
     @property
     def name(self) -> str:
@@ -71,5 +77,14 @@ class Course(ABC):
                 + f"\nDepartment: {self.__department.name.replace('_',' ').title()}"
                  + f"\nCredit Hours: {self.__credit_hours}")
 
-        
+    @abstractmethod
+    def enroll_student(self, student:Student) -> str:
+        """
+            Enrolls a student in a course if capacity allows.
+            Args:
+                student(Student): the student to be enrolled.
+            Returns: str: String message indicating success for failure.
+        """
+        pass
+
 
