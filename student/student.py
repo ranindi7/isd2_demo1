@@ -1,13 +1,14 @@
 import random
 from department.department import Department
 from patterns.singleton.singleton_student_manager import SingletonStudentManager
+from student.istudent import iStudent
 
-class Student:
+class Student(iStudent):
     """
     Student class.  Represents a student in a school.
     """
 
-    def __init__(self, name: str, department: Department, grade_point_average: float):
+    def __init__(self, name: str, department: Department):
         """
         Initializes a course object based on received arguments (if valid).
         args:
